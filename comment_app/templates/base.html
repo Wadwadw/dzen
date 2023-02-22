@@ -5,10 +5,18 @@
 <head>
 	<title>Комментарии</title>
 	<link href="{% static 'styles.css' %}" rel="stylesheet" type="text/css">
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </head>
 <body>
+<nav class="nav">
+  <a href="{% url 'main_app:main' %}" class="button">Main Comments</a>
+  <a href="{% url 'main_app:comments' %}" class="button">All Comments</a>
+  <a href="{% url 'main_app:add_comment' %}" class="button">Add Comment</a>
+</nav>
+<div class="mx-5 px-5 mt-3 pt-3">
 	{% block content %}
     {% endblock content %}
-
+</div>
 </body>
 </html>

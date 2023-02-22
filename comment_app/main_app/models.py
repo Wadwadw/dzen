@@ -7,7 +7,7 @@ class Comment(MPTTModel):
     user_name = models.CharField(max_length=255)
     email = models.EmailField()
     home_page = models.URLField()
-    # captcha = CaptchaField()
+    captcha = CaptchaField()
     text = models.TextField()
     add_date = models.DateTimeField(auto_now_add=True)
     parent = TreeForeignKey(
@@ -17,7 +17,6 @@ class Comment(MPTTModel):
         blank=True,
         related_name='children'
     )
-
 
     class MPTTMeta:
         order_insertion_by = ['user_name']

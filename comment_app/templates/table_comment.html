@@ -6,6 +6,7 @@
     <th>email</th>
     <th>home_page</th>
     <th>comment</th>
+      <th>Detail</th>
   </tr>
     {% load mptt_tags %}
     {% recursetree object_list %}
@@ -14,6 +15,7 @@
     <td>{{ node.email }}</td>
     <td>{{ node.home_page }}</td>
     <td>{{ node.text }}</td>
+      <td><a href="{% url 'main_app:comment_detail' node.pk %}" class="button">Detail</a></td>>
   </tr>
 {% endrecursetree %}
 </table>

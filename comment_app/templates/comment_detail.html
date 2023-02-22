@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load mptt_tags %}
+    {% recursetree object %}
+        <div class="{% if node.is_child_node %}reply{% else %}comment{% endif %}">
+		<div class="author">
+			<img src="https://via.placeholder.com/50" alt="User avatar">
+			<a href="#">{{ node.user_name }}</a>
+			<a href="#" class="website">{{ node.home_page }}</a>
+			<span class="email">{{ node.email }}</span>
+		</div>
+		<p>{{ node.text }}</p>
+           {% if not node.is_leaf_node %}
+               <ul>
+               {{ children }}
+               </ul>
+       {% endif %}
+	</div>
+    {% endrecursetree %}
+{% endblock %}
