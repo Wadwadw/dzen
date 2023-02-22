@@ -6,18 +6,20 @@ from .models import Comment
 
 
 class CommentsView(generic.ListView):
+    """Returns all comments with tree"""
     paginate_by = 25
     model = Comment
     template_name = 'comments.html'
 
 
 class MainCommentTableView(generic.ListView):
+    """Returns comments without parents"""
     paginate_by = 25
     model = Comment
     template_name = 'table_comment.html'
-    # queryset = Comment.objects.filter(parent=None)
 
     def get_queryset(self):
+        # ordering comments
         order_by = self.request.GET.get('order_by', 'name')
         if order_by not in ['user_name', '-user_name', 'add_date', '-add_date', 'email', '-email']:
             order_by = 'user_name'
@@ -25,6 +27,7 @@ class MainCommentTableView(generic.ListView):
 
 
 class CommentDetailView(generic.DetailView):
+    """Returns selected comment with all children"""
     model = Comment
     template_name = 'comment_detail.html'
 
@@ -37,16 +40,10 @@ class CommentDetailView(generic.DetailView):
 
 
 def add_comment(request):
+    """View create comment"""
     if request.POST:
         form = CommentModelForm(request.POST)
-
-        # Validate the form: the captcha field will automatically
-        # check the input
         if form.is_valid():
-            # request_body = request.body.decode("utf-8").split("&")
-            # request_dict = {}
-            # for i in request_body:
-            #     request_dict[i.split("=")[0]] = i.split("=")[1]
             if request.GET.get("parent_id"):
                 parent = Comment.objects.get(id=request.GET.get("parent_id"))
             else:
@@ -63,4 +60,3 @@ def add_comment(request):
         form = CommentModelForm()
 
     return render(request, 'add_comment.html', {'form': form})
-    # return redirect("/main")

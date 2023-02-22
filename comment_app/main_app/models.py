@@ -6,7 +6,7 @@ from captcha.fields import CaptchaField
 class Comment(MPTTModel):
     user_name = models.CharField(max_length=255)
     email = models.EmailField()
-    home_page = models.URLField()
+    home_page = models.URLField(null=True, blank=True)
     captcha = CaptchaField()
     text = models.TextField()
     add_date = models.DateTimeField(auto_now_add=True)

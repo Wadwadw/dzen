@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'captcha',
     'crispy_forms',
     'crispy_bootstrap5',
-    'django_filters',
     # my apps
     'main_app'
 ]
