@@ -5,9 +5,11 @@
        <div class="{% if node.is_child_node %}reply{% else %}comment{% endif %}">
 		<div class="author">
 			<img src="https://via.placeholder.com/50" alt="User avatar">
-			<a href="#">{{ node.user_name }}</a>
-			<a href="#" class="website">{{ node.home_page }}</a>
+			<a class="px-3">{{ node.user_name }}</a>
+            <span>Added: {{ node.add_date }}</span>
+			<a href="{{ node.home_page }}" class="website">Home page</a>
 			<span class="email">{{ node.email }}</span>
+            <a href="{% url 'main_app:add_comment' %}?parent_id={{ node.id }}" class="reply-button">Reply</a>
 		</div>
 		<p>{{ node.text }}</p>
            {% if not node.is_leaf_node %}

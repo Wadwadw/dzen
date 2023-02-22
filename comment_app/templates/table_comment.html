@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
+    <p>
+    <h6>Order by name</h6>
+    <a href="?order_by=user_name">A to Z</a>
+    <a href="?order_by=-user_name">Z to A</a>
+    <h6>Order by email</h6>
+    <a href="?order_by=email">A to Z</a>
+    <a href="?order_by=-email">Z to A</a>
+    <h6>Order by add date</h6>
+    <a href="?order_by=add_date">A to Z</a>
+    <a href="?order_by=-add_date">Z to A</a>
+    </p>
+
 <table class="comment">
   <tr>
     <th>user_name</th>
     <th>email</th>
     <th>home_page</th>
+      <th>added</th>
     <th>comment</th>
       <th>Detail</th>
   </tr>
@@ -14,7 +27,8 @@
     <td>{{ node.user_name }}</td>
     <td>{{ node.email }}</td>
     <td>{{ node.home_page }}</td>
-    <td>{{ node.text }}</td>
+      <td>{{ node.add_date }}</td>
+    <td>{{ node.text|truncatewords:5 }}</td>
       <td><a href="{% url 'main_app:comment_detail' node.pk %}" class="button">Detail</a></td>>
   </tr>
 {% endrecursetree %}
