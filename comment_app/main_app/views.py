@@ -55,7 +55,7 @@ def add_comment(request):
                 text=request.POST.get("text"),
                 parent=parent
             )
-            return redirect("/main")
+            return redirect("/")
     else:
         form = CommentModelForm()
 
