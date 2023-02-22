@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load mptt_tags %}
+    {% recursetree object_list %}
+       <div class="{% if node.is_child_node %}reply{% else %}comment{% endif %}">
+		<div class="author">
+			<img src="https://via.placeholder.com/50" alt="User avatar">
+			<a href="#">{{ node.user_name }}</a>
+			<a href="#" class="website">{{ node.home_page }}</a>
+			<span class="email">{{ node.email }}</span>
+		</div>
+		<p>{{ node.text }}</p>
+           {% if not node.is_leaf_node %}
+               <ul>
+               {{ children }}
+               </ul>
+       {% endif %}
+	</div>
+
+
+
+
+    {% endrecursetree %}
+    <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+{% endblock content %}

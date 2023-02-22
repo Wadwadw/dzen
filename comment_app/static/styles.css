@@ -1,0 +1,145 @@
+/* Common styles */
+.comment {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.reply {
+  margin: 20px 20px 20px 60px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.author img {
+  border-radius: 50%;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.author a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.author a:hover {
+  color: #666;
+}
+
+.author a.website {
+  font-weight: normal;
+}
+
+.author span.email {
+  margin-left: 20px;
+  font-weight: normal;
+  color: #666;
+}
+
+/* Styles for comment and reply texts */
+.comment p, .reply p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.comment p:first-of-type {
+  margin-top: 10px;
+}
+
+.reply p:first-of-type {
+  margin-top: 20px;
+}
+
+/* Styles for buttons */
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2196f3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0d8be0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .comment {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .reply {
+    margin: 10px 10px 10px 40px;
+    padding: 10px;
+  }
+
+  .author {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .author img {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .author a {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .author span.email {
+    margin-left: 0;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+}
+
+table.comment {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px;
+}
+
+table.comment th,
+table.comment td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table.comment th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+}
+
+table.comment tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
