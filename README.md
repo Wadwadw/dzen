@@ -8,13 +8,14 @@ To install the app, follow these steps:
     `git clone https://github.com/Wadwadw/dzen.git`
 2. Change directory to the app:
    `cd dzen/comment_app`
-3. Build the Docker containers:
+3. Run Docker
+4. Build the Docker containers:
     `docker-compose build`
-4. Run the database migrations:
+5. Run the database migrations:
     `docker-compose run web python manage.py migrate`
-5. Start the app:
+6. Start the app:
     `docker-compose up`
-6. Open the app in your browser:
+7. Open the app in your browser:
     `http://localhost:9000`
 
 #Usage
