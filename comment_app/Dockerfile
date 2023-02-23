@@ -26,7 +26,7 @@ RUN python manage.py migrate
 EXPOSE 8000
 
 # Define environment variable
-ENV DJANGO_SETTINGS_MODULE=dzen.settings.dev
+ENV DJANGO_SETTINGS_MODULE=comment_app.settings.dev
 
 # Start the server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
